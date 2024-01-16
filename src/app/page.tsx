@@ -3,7 +3,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { IconArrowUpRight, IconBrandLinkedin } from "@tabler/icons-react";
 import Image from "next/image";
 
-const Home = () => {
+export default function Home() {
   return (
     <main className="bg-background min-h-screen px-2 max-w-7xl mx-auto w-11/12 grid grid-cols-1 lg:grid-cols-2">
       <div className="w-full flex flex-col py-20 justify-center items-center">
@@ -62,5 +62,3 @@ const Home = () => {
     </main>
   )
 }
-
-export default Home
