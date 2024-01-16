@@ -1,6 +1,6 @@
-import AboutImage from "@/assets/about.jpg";
+import AboutImage from "@/assets/about.png";
 import { buttonVariants } from "@/components/ui/button";
-import { IconBrandLinkedin } from "@tabler/icons-react";
+import { IconArrowUpRight, IconBrandLinkedin } from "@tabler/icons-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -35,7 +35,7 @@ export default function Home() {
             <p className="w-24">De</p><span className="w-4">:</span><p className="text-stone-400">Argentina, Tucuman</p>
           </div>
         </div>
-        <div>
+        <div className="flex gap-2">
           <a
             href="https://www.linkedin.com/in/josescap/"
             target="_blank"
@@ -44,6 +44,15 @@ export default function Home() {
             }
           >
             <IconBrandLinkedin /> Contactame
+          </a>
+          <a
+            href="/FrontendEngineer-JuanJosePuenteScapolatempo.pdf"
+            target="_blank"
+            className={
+              buttonVariants({ variant: 'resume', className: 'cursor-pointer' })
+            }
+          >
+            <IconArrowUpRight /> Mira mi CV
           </a>
         </div>
       </div>
