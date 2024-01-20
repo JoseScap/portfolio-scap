@@ -5,10 +5,15 @@ import { IconArrowUpRight, IconBrandLinkedin } from "@tabler/icons-react";
 import Image from "next/image";
 import { buttonVariants } from "../ui/button";
 
-export default async function AboutSection() {
-  let { data, error } = await supabase
+async function getProfileData() {
+  'use server'
+  return await supabase
     .from('profile')
     .select('*')
+}
+
+export default async function AboutSection() {
+  const { data, error } = await getProfileData()
 
   return (
     <main className="bg-background min-h-screen px-2 max-w-7xl mx-auto w-11/12 grid grid-cols-1 lg:grid-cols-2">
