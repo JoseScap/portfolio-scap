@@ -21,7 +21,7 @@ export default async function AboutSection() {
             Acerca de Mi
           </h2>
           <h1 className="text-2xl font-bold tracking-widest">
-            {error !== null && data && data.length > 0 ? data[0].alias : fixedProfile.alias}
+            {error === null && data && data.length > 0 ? data[0].alias : fixedProfile.alias}
           </h1>
           <p className="text-md text-stone-400">
             Desarrollador Frontend con 4 años de experiencia. Experto en crear código robusto y escalable,
