@@ -1,21 +1,25 @@
 import AboutImage from "@/assets/about.png";
-import { fixedProfile } from "@/mock/profile.mock";
-import supabase from "@/supabase/supabase";
+import { Profile } from "@/types/types";
 import { IconArrowUpRight, IconBrandLinkedin } from "@tabler/icons-react";
 import Image from "next/image";
 import { buttonVariants } from "../ui/button";
 
-async function getProfileData() {
-  'use server'
-  console.log('Render')
-  return await supabase
-    .from('profile')
-    .select('*')
+interface Props {
+  profile: Profile
 }
 
-export default async function AboutSection() {
-  const { data, error } = await getProfileData()
-
+export default async function AboutSection(
+  { 
+    profile:{
+      age,
+      alias,
+      description,
+      email,
+      from,
+      fullname
+    }
+  }: Props
+) {
   return (
     <main className="bg-background min-h-screen px-2 max-w-7xl mx-auto w-11/12 grid grid-cols-1 lg:grid-cols-2">
       <div className="w-full flex flex-col py-20 justify-center items-center">
@@ -27,10 +31,10 @@ export default async function AboutSection() {
             Acerca de Mi
           </h2>
           <h1 className="text-2xl font-bold tracking-widest">
-            {error === null && data && data.length > 0 ? data[0].alias : fixedProfile.alias}
+            {alias}
           </h1>
           <p className="text-md text-stone-400">
-            {error === null && data && data.length > 0 ? data[0].description : fixedProfile.description}
+            {description}
           </p>
         </div>
         <div>
@@ -38,28 +42,28 @@ export default async function AboutSection() {
             <p className="w-24">Nombre</p>
             <span className="w-4">:</span>
             <p className="text-stone-400">
-              {error === null && data && data.length > 0 ? data[0].fullname : fixedProfile.fullname}
+              {fullname}
             </p>
           </div>
           <div className="flex text-md">
             <p className="w-24">Edad</p>
             <span className="w-4">:</span>
             <p className="text-stone-400">
-              {error === null && data && data.length > 0 ? data[0].age : fixedProfile.age}
+              {age}
             </p>
           </div>
           <div className="flex text-md">
             <p className="w-24">De</p>
             <span className="w-4">:</span>
             <p className="text-stone-400">
-              {error === null && data && data.length > 0 ? data[0].from : fixedProfile.from}
+              {from}
             </p>
           </div>
           <div className="hidden sm:flex text-md">
             <p className="w-24">E-Mail</p>
             <span className="w-4">:</span>
             <p className="text-stone-400">
-              {error === null && data && data.length > 0 ? data[0].email : fixedProfile.email}
+              {email}
             </p>
           </div>
         </div>
