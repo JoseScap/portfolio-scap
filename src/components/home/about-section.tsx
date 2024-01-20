@@ -38,7 +38,7 @@ export default function AboutSection() {
             <p className="w-24">Mail</p><span className="w-4">:</span><p className="text-stone-400">juanpuentescapolatempo@gmail.com</p>
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           <a
             href="https://www.linkedin.com/in/josescap/"
             target="_blank"
