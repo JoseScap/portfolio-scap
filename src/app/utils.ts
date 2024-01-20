@@ -3,6 +3,6 @@ import { cache } from "react"
 
 export const getProfileData = cache(async function() {
   return await supabase
-    .from('profile')
+    .from('Profile')
     .select('*')
 })
