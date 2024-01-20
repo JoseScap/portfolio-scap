@@ -24,24 +24,37 @@ export default async function AboutSection() {
             {error === null && data && data.length > 0 ? data[0].alias : fixedProfile.alias}
           </h1>
           <p className="text-md text-stone-400">
-            Desarrollador Frontend con 4 años de experiencia. Experto en crear código robusto y escalable,
-            con un fuerte énfasis en la mantenibilidad. Cuento con experiencia en el desarrollo e implementación
-            de aplicaciones web y APIs RESTful. Busco con entusiasmo una oportunidad desafiante que enriquezca
-            mi trayectoria profesional y me permita aportar un valor significativo.
+            {error === null && data && data.length > 0 ? data[0].description : fixedProfile.description}
           </p>
         </div>
         <div>
           <div className="flex text-md text-wrap">
-            <p className="w-24">Nombre</p><span className="w-4">:</span><p className="text-stone-400">Juan Jose Puente S.</p>
+            <p className="w-24">Nombre</p>
+            <span className="w-4">:</span>
+            <p className="text-stone-400">
+              {error === null && data && data.length > 0 ? data[0].fullname : fixedProfile.fullname}
+            </p>
           </div>
           <div className="flex text-md">
-            <p className="w-24">Edad</p><span className="w-4">:</span><p className="text-stone-400">26</p>
+            <p className="w-24">Edad</p>
+            <span className="w-4">:</span>
+            <p className="text-stone-400">
+              {error === null && data && data.length > 0 ? data[0].age : fixedProfile.age}
+            </p>
           </div>
           <div className="flex text-md">
-            <p className="w-24">De</p><span className="w-4">:</span><p className="text-stone-400">Argentina, Tucuman</p>
+            <p className="w-24">De</p>
+            <span className="w-4">:</span>
+            <p className="text-stone-400">
+              {error === null && data && data.length > 0 ? data[0].from : fixedProfile.from}
+            </p>
           </div>
           <div className="hidden sm:flex text-md">
-            <p className="w-24">Mail</p><span className="w-4">:</span><p className="text-stone-400">juanpuentescapolatempo@gmail.com</p>
+            <p className="w-24">E-Mail</p>
+            <span className="w-4">:</span>
+            <p className="text-stone-400">
+              {error === null && data && data.length > 0 ? data[0].email : fixedProfile.email}
+            </p>
           </div>
         </div>
         <div className="flex gap-2 flex-wrap">
