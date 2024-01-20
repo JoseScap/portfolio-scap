@@ -7,6 +7,7 @@ import { buttonVariants } from "../ui/button";
 
 async function getProfileData() {
   'use server'
+  console.log('Render')
   return await supabase
     .from('profile')
     .select('*')
