@@ -1,9 +1,15 @@
 import AboutImage from "@/assets/about.png";
+import { fixedProfile } from "@/mock/profile.mock";
+import supabase from "@/supabase/supabase";
 import { IconArrowUpRight, IconBrandLinkedin } from "@tabler/icons-react";
 import Image from "next/image";
 import { buttonVariants } from "../ui/button";
 
-export default function AboutSection() {
+export default async function AboutSection() {
+  let { data, error } = await supabase
+    .from('profile')
+    .select('*')
+
   return (
     <main className="bg-background min-h-screen px-2 max-w-7xl mx-auto w-11/12 grid grid-cols-1 lg:grid-cols-2">
       <div className="w-full flex flex-col py-20 justify-center items-center">
@@ -15,7 +21,7 @@ export default function AboutSection() {
             Acerca de Mi
           </h2>
           <h1 className="text-2xl font-bold tracking-widest">
-            Juan Jose Puente S.
+            {error !== null && data && data.length > 0 ? data[0].alias : fixedProfile.alias}
           </h1>
           <p className="text-md text-stone-400">
             Desarrollador Frontend con 4 años de experiencia. Experto en crear código robusto y escalable,
