@@ -38,7 +38,7 @@ export default function ResumeSection() {
   return (
     <section className="bg-background min-h-screen py-12 px-2 max-w-7xl mx-auto w-11/12 grid grid-cols-1">
       <MyJourney title="Education" journeyIcon="education" journeys={educations} startJourney="2020" />
-      <MyJourney title="Education" journeyIcon="education" journeys={experiences} startJourney="2020" />
+      <MyJourney title="Experience" journeyIcon="experience" journeys={experiences} startJourney="2020" />
     </section>
   )
 }
