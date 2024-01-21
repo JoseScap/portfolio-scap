@@ -1,5 +1,6 @@
 import AboutSection from "@/components/home/about-section";
 import ResumeSection from "@/components/home/resume-section";
+import SkillSection from "@/components/home/skill-section";
 import { fixedJourneys } from "@/mock/journeys.mock";
 import { fixedProfile } from "@/mock/profile.mock";
 import { getJourneyData, getProfileData } from "./utils";
@@ -26,6 +27,7 @@ export default async function Home() {
             : fixedJourneys
         }
       />
+      <SkillSection />
     </>
   )
 }

@@ -32,9 +32,9 @@ export default function MyJourney({ journeyIcon = 'idea',journeys, startJourney,
           </div>)
         }
         <div className={`relative ps-8 pb-4`}>
-            <div className="absolute top-[6px] left-[2px] w-4 h-4 bg-background rounded-full border-4 border-red-500"></div>
-            <p className="font-bold flex gap-2">Start point <span className="text-red-500">{startJourney ?? '...'}</span></p>
-          </div>
+          <div className="absolute top-[6px] left-[2px] w-4 h-4 bg-background rounded-full border-4 border-red-500"></div>
+          <p className="font-bold flex gap-2">Start point <span className="text-red-500">{startJourney ?? '...'}</span></p>
+        </div>
       </div>
     </div>
   )
