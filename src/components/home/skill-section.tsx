@@ -13,9 +13,9 @@ export default function SkillSection() {
       </div>
       <div className="max-w-5xl mx-auto w-11/12 grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-8">
         <SkillProgress title="React JS" max={4} years={4} />
-        <SkillProgress title="React JS" max={3} years={4} />
-        <SkillProgress title="React JS" max={2} years={4} />
-        <SkillProgress title="React JS" max={1} years={4} />
+        <SkillProgress title="React JS" max={4} years={3} />
+        <SkillProgress title="React JS" max={4} years={2} />
+        <SkillProgress title="React JS" max={4} years={1} />
       </div>
     </section>
   )
