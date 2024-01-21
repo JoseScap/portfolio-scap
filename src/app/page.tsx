@@ -5,7 +5,7 @@ import { fixedJourneys } from "@/mock/journeys.mock";
 import { fixedProfile } from "@/mock/profile.mock";
 import { getJourneyData, getProfileData } from "./utils";
 
-export const revalidate = 86400
+export const revalidate = 600
 
 export default async function Home() {
   const { data: profileData, error: profileError } = await getProfileData()
