@@ -22,7 +22,7 @@ export default async function AboutSection(
 ) {
   return (
     <main className="bg-background min-h-screen px-2 max-w-7xl mx-auto w-11/12 grid grid-cols-1 lg:grid-cols-2">
-      <div className="w-full flex flex-col py-20 justify-center items-center">
+      <div className="hidden w-full lg:flex lg:flex-col py-20 justify-center items-center">
         <Image src={AboutImage} alt="Juan Jose Puente Scapolatempo" className="w-full max-w-sm" />
       </div>
       <div className="flex flex-col py-20 gap-8 justify-center">
