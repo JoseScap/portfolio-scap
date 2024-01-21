@@ -45,8 +45,8 @@ export const fixedJourneys: Journey[] = [
             },
             {
                 id: 3,
-                title: 'Frontend Engineer',
-                place: 'Baufest & Galicia Bank',
+                title: 'Fullstack Developer',
+                place: 'MSMT',
                 startDate: '2020-02-10',
                 endDate: '2021-06-10',
             },
