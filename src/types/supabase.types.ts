@@ -104,6 +104,30 @@ export interface Database {
         }
         Relationships: []
       }
+      Skill: {
+        Row: {
+          created_at: string
+          fav: boolean
+          id: number
+          title: string
+          years: number
+        }
+        Insert: {
+          created_at?: string
+          fav?: boolean
+          id?: number
+          title: string
+          years?: number
+        }
+        Update: {
+          created_at?: string
+          fav?: boolean
+          id?: number
+          title?: string
+          years?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

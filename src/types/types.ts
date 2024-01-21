@@ -5,3 +5,4 @@ export type JourneyItem = Omit<Tables<'JourneyItem'>, 'created_at' | 'journeyId'
 export type Journey = Omit<Tables<'Journey'>, 'created_at'> & {
     JourneyItem?: JourneyItem[]
 }
+export type Skill = Omit<Tables<'Skill'>, 'created_at'>
