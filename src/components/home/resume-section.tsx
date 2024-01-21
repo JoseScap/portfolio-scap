@@ -1,5 +1,5 @@
 import { Journey } from "@/types/types";
-import MyJourney from "../ui/my-journey";
+import MyJourney from "../custom-components/my-journey";
 
 interface Props {
   journeys: Journey[]
@@ -25,8 +25,6 @@ export default function ResumeSection({ journeys }: Props) {
             startJourney={startYear}
           />)
         }
-        {/* <MyJourney title="Educación" journeyIcon="education" journeys={educations} startJourney="2020" />
-        <MyJourney title="Experiencia" journeyIcon="experience" journeys={experiences} startJourney="2020" /> */}
       </div>
     </section>
   )
