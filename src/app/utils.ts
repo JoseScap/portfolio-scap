@@ -16,4 +16,8 @@ export const getJourneyData = cache(async function() {
         *
       )
     `)
+    .eq('fav', true)
+    .order('id', { ascending: true })
+    .order('endDate', { referencedTable: 'JourneyItem', ascending: false })
+    .range(0, 1)
 })
