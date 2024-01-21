@@ -1,16 +1,17 @@
+import { Skill } from "@/types/types";
+import { IconStar } from "@tabler/icons-react";
 import { Progress } from "../ui/progress";
 
-interface Props {
-  title: string
-  years: number
+
+interface Props extends Skill {
   max: number
 }
 
-export default function SkillProgress({ title, years, max }: Props) {
+export default function SkillProgress({ title, years, fav, max }: Props) {
   return (
     <div className=" flex flex-col gap-1">
       <div className="flex justify-between">
-        <h5>{title}</h5>
+        <h5 className="flex gap-1">{fav && <span className="text-primary"><IconStar /></span>} {title}</h5>
         <p>{years} {years > 1 ? 'Años' : 'Año'}</p>
       </div>
       <div>
