@@ -15,18 +15,21 @@ export interface Database {
           fav: boolean
           id: number
           name: string
+          startYear: string
         }
         Insert: {
           created_at?: string
           fav?: boolean
           id?: number
           name?: string
+          startYear?: string
         }
         Update: {
           created_at?: string
           fav?: boolean
           id?: number
           name?: string
+          startYear?: string
         }
         Relationships: []
       }
