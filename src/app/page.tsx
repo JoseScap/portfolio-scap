@@ -10,8 +10,6 @@ export default async function Home() {
   const { data: profileData, error: profileError } = await getProfileData()
   const { data: journeyData, error: journeyError } = await getJourneyData()
 
-  console.log(journeyData, journeyError)
-
   return (
     <>
       <AboutSection
