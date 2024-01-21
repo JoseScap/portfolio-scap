@@ -1,4 +1,4 @@
-import { Progress } from "../ui/progress";
+import SkillProgress from "../custom-components/skill-progress";
 
 export default function SkillSection() {
   return (
@@ -12,15 +12,10 @@ export default function SkillSection() {
         </h2>
       </div>
       <div className="max-w-5xl mx-auto w-11/12 grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-8">
-        <div className=" flex flex-col gap-1">
-          <div className="flex justify-between">
-            <h5>React JS</h5>
-            <p>4 años</p>
-          </div>
-          <div>
-            <Progress value={25} />
-          </div>
-        </div>
+        <SkillProgress title="React JS" max={4} years={4} />
+        <SkillProgress title="React JS" max={3} years={4} />
+        <SkillProgress title="React JS" max={2} years={4} />
+        <SkillProgress title="React JS" max={1} years={4} />
       </div>
     </section>
   )
