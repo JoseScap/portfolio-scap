@@ -9,6 +9,65 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
+      Journey: {
+        Row: {
+          created_at: string
+          fav: boolean
+          id: number
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          fav?: boolean
+          id?: number
+          name?: string
+        }
+        Update: {
+          created_at?: string
+          fav?: boolean
+          id?: number
+          name?: string
+        }
+        Relationships: []
+      }
+      JourneyItem: {
+        Row: {
+          created_at: string
+          endDate: string | null
+          id: number
+          journeyId: number
+          place: string
+          startDate: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          endDate?: string | null
+          id?: number
+          journeyId: number
+          place?: string
+          startDate: string
+          title?: string
+        }
+        Update: {
+          created_at?: string
+          endDate?: string | null
+          id?: number
+          journeyId?: number
+          place?: string
+          startDate?: string
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "JourneyItem_journeyId_fkey"
+            columns: ["journeyId"]
+            isOneToOne: false
+            referencedRelation: "Journey"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       Profile: {
         Row: {
           age: number
