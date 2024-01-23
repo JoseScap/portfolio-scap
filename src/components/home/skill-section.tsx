@@ -1,11 +1,17 @@
 'use client'
 
-import { allOrderedSkills, favSkills, maxYearsForAll } from "@/mock/skills.mock";
+import { Skill } from "@/types/types";
 import { useState } from "react";
 import SkillProgress from "../custom-components/skill-progress";
 import { Button } from "../ui/button";
 
-export default function SkillSection() {
+interface Props {
+  allSkills: Skill[]
+  favSkills: Skill[]
+  maxYear: number
+}
+
+export default function SkillSection({ allSkills, favSkills, maxYear }: Props) {
   const [showMore, setShowMore] = useState(false)
 
   const handleShowMore = () => setShowMore(prev => !prev)
@@ -23,8 +29,8 @@ export default function SkillSection() {
       <div className="max-w-5xl mx-auto w-11/12 grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-8 mb-8">
         {
           showMore
-            ? allOrderedSkills.map((s) => <SkillProgress key={s.id} {...s} max={maxYearsForAll} />)
-            : favSkills.map((s) => <SkillProgress key={s.id} {...s} max={maxYearsForAll} />)
+            ? allSkills.map((s) => <SkillProgress key={s.id} {...s} max={maxYear} />)
+            : favSkills.map((s) => <SkillProgress key={s.id} {...s} max={maxYear} />)
         }
       </div>
       <div className="max-w-5xl mx-auto w-11/12 flex justify-end">
