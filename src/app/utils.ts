@@ -28,3 +28,11 @@ export const getSkills = cache(async function() {
     .select('*')
     .order('years', { ascending: false })
 })
+
+export const getFavSkills = cache(async function() {
+  return await supabase
+    .from('Skill')
+    .select('*')
+    .eq('fav', true)
+    .order('years', { ascending: false })
+})

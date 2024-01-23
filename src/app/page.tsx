@@ -4,7 +4,7 @@ import SkillSection from "@/components/home/skill-section";
 import { fixedJourneys } from "@/mock/journeys.mock";
 import { fixedProfile } from "@/mock/profile.mock";
 import { fixedAllSkills, fixedFavSkills, fixedMaxYear } from "@/mock/skills.mock";
-import { getJourneys, getProfile, getSkills } from "./utils";
+import { getFavSkills, getJourneys, getProfile, getSkills } from "./utils";
 
 export const revalidate = 600
 
@@ -12,6 +12,7 @@ export default async function Home() {
   const { data: profile, error: profileError } = await getProfile()
   const { data: journeys, error: journeyError } = await getJourneys()
   const { data: skills, error: skillError } = await getSkills()
+  const { data: favSkills, error: favSkillError } = await getFavSkills()
 
   return (
     <>
@@ -30,9 +31,21 @@ export default async function Home() {
         }
       />
       <SkillSection
-        allSkills={fixedAllSkills}
-        favSkills={fixedFavSkills}
-        maxYear={fixedMaxYear}
+        allSkills={
+          skillError === null && !!skills && skills.length > 0
+            ? skills
+            : fixedAllSkills
+        }
+        favSkills={
+          favSkillError === null && !!favSkills && favSkills.length > 0
+            ? favSkills
+            : fixedFavSkills
+        }
+        maxYear={
+          skillError === null && !!skills && skills.length > 0
+            ? skills[0].years
+            : fixedMaxYear
+        }
       />
     </>
   )
