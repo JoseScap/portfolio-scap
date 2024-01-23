@@ -34,7 +34,7 @@ export default function SkillSection({ allSkills, favSkills, maxYear }: Props) {
         }
       </div>
       <div className="max-w-5xl mx-auto w-11/12 flex justify-end">
-        <Button variant={'default'} onClick={handleShowMore}>{!showMore ? 'Ver todas' : 'Ver solo favoritas'}</Button>
+        <Button variant={'outline-primary'} onClick={handleShowMore}>{!showMore ? 'Ver todas' : 'Ver solo favoritas'}</Button>
       </div>
     </section>
   )
