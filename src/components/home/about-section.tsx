@@ -27,7 +27,7 @@ export default async function AboutSection(
       </div>
       <div className="flex flex-col py-20 gap-8 justify-center">
         <div>
-          <h2 className="uppercase text-md font-bold text-red-500 tracking-widest">
+          <h2 className="uppercase text-md font-bold text-primary tracking-widest">
             Acerca de Mi
           </h2>
           <h1 className="text-2xl font-bold tracking-widest">
@@ -69,6 +69,15 @@ export default async function AboutSection(
         </div>
         <div className="flex gap-2 flex-wrap">
           <a
+            href="/FrontendEngineer-JuanJosePuenteScapolatempo.pdf"
+            target="_blank"
+            className={
+              buttonVariants({ variant: 'default', className: 'cursor-pointer' })
+            }
+          >
+            <IconArrowUpRight /> Mira mi CV
+          </a>
+          <a
             href="https://www.linkedin.com/in/josescap/"
             target="_blank"
             className={
@@ -76,15 +85,6 @@ export default async function AboutSection(
             }
           >
             <IconBrandLinkedin /> Contactame
-          </a>
-          <a
-            href="/FrontendEngineer-JuanJosePuenteScapolatempo.pdf"
-            target="_blank"
-            className={
-              buttonVariants({ variant: 'resume', className: 'cursor-pointer' })
-            }
-          >
-            <IconArrowUpRight /> Mira mi CV
           </a>
         </div>
       </div>
