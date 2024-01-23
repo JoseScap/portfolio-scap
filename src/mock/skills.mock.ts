@@ -76,7 +76,7 @@ export const allSkills: Skill[] = [
   },
 ]
 
-export const favSkills = allSkills.filter(s => s.fav)
-export const allOrderedSkills = [...allSkills].sort((a, b) => b.years - a.years)
+export const fixedFavSkills = allSkills.filter(s => s.fav)
+export const fixedAllSkills = [...allSkills].sort((a, b) => b.years - a.years)
 
-export const maxYearsForAll = Math.max(...allSkills.map<number>(fs => fs.years))
+export const fixedMaxYear = Math.max(...allSkills.map<number>(fs => fs.years))
