@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { HeaderDictionary } from "@/types/types";
 import { Paintbrush } from "lucide-react";
 import { useTheme } from "next-themes";
 import ColorIndicator, { ColorIndicatorProps } from "./color-indicator";
@@ -16,18 +17,25 @@ const themes: (Pick<ColorIndicatorProps, 'variant'> & { text: string })[] = [
   // { variant: 'violet', text: 'Violeta' }, // FIXME: No pasa la prueba de contraste
 ]
 
-export default function Header() {
+interface Props {
+  translations: HeaderDictionary
+}
+
+export default function HeaderSection({
+  translations = { brand: 'Josescap', customize: 'Personalizar' }
+}: Props) {
   const { setTheme, theme } = useTheme()
+  const { brand, customize } = translations
 
   return (
     <header className="border-b z-50 fixed w-screen top-0 bg-background">
       <div className="max-w-7xl mx-auto w-11/12 py-4 flex flex-row justify-between items-center">
-        <h2 className="uppercase text-md font-bold text-primary">Josescap</h2>
+        <h2 className="uppercase text-md font-bold text-primary">{brand}</h2>
         <div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="gap-2">
-                <Paintbrush /> Personalizar
+                <Paintbrush /> {customize}
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="gap-y-4">

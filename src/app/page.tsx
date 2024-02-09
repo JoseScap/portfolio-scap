@@ -1,24 +1,19 @@
-import { journeyData } from "@/data/journeys.mock";
-import { profileData } from "@/data/profile.mock";
-import { favSkills, maxYear, nonFavSkills } from "@/data/skills.mock";
-import AboutSection from "./components/About/about-section";
-import Header from "./components/Header/header";
-import ResumeSection from "./components/Resume/resume-section";
-import SkillSection from "./components/Skill/skill-section";
-
-export const revalidate = 600
+import { getDictionary } from "./[lang]/dictionaries";
+import HeaderSection from "./components/Header/header-section";
 
 export default async function Home() {
+  const { header } = await getDictionary()
+
   return (
     <>
-      <Header />
-      <AboutSection profile={profileData} />
-      <ResumeSection journeys={journeyData} />
-      <SkillSection
+      <HeaderSection translations={header} />
+      {/* <AboutSection /> */}
+      {/* <ResumeSection journeys={journeyData} /> */}
+      {/* <SkillSection
         nonFavSkills={nonFavSkills}
         favSkills={favSkills}
         maxYear={maxYear}
-      />
+      /> */}
     </>
   )
 }

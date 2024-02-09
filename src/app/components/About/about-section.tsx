@@ -5,13 +5,7 @@ interface Props {
   lang?: string
 }
 
-export default async function AboutSection(
-  { 
-    lang = 'es'
-  }: Props
-) {
-  const { default: { aboutSection } } = await import(`@/app/dictionaries/${lang}`)
-
+export default async function AboutSection() {
   return (
     <main className="bg-background min-h-screen px-2 max-w-5xl mx-auto w-11/12 grid grid-cols-1">
       <div className="flex flex-col py-20 gap-8 justify-center">
