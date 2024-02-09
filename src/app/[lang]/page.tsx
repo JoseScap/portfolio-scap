@@ -12,9 +12,14 @@ export async function generateStaticParams() {
   return langs
 }
 
-export default async function Home({ params: { lang } }: { params: { lang: DictionaryKind }}) {
+interface Props {
+  params: {
+    lang: DictionaryKind
+  }
+}
+
+export default async function Home({ params: { lang } }: Props) {
   const { header } = await getDictionary(lang)
-  console.log(lang, header)
 
   return (
     <>

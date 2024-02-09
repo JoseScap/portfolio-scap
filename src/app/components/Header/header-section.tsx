@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { PropsWithTranslations } from "@/interfaces/interfaces";
 import { HeaderDictionary } from "@/types/types";
 import { Paintbrush } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -17,13 +18,9 @@ const themes: (Pick<ColorIndicatorProps, 'variant'> & { text: string })[] = [
   // { variant: 'violet', text: 'Violeta' }, // FIXME: No pasa la prueba de contraste
 ]
 
-interface Props {
-  translations: HeaderDictionary
-}
-
 export default function HeaderSection({
   translations = { brand: 'Josescap', customize: 'Personalizar' }
-}: Props) {
+}: PropsWithTranslations<HeaderDictionary>) {
   const { setTheme, theme } = useTheme()
   const { brand, customize } = translations
 
