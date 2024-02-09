@@ -17,14 +17,3 @@ export function formatJourneyDate(value: string) {
 
   return `${year} ${month}`
 }
-
-export function randomNumber(min: number = 1, max: number = 99_999): number {
-  if (min > max) {
-    [min, max] = [max, min];
-  }
-
-  const range = max - min;
-  const random = Math.random();
-
-  return Math.floor(random * range + min);
-}
