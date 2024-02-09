@@ -19,7 +19,7 @@ export default function SkillSection({ allSkills, favSkills, maxYear }: Props) {
   return (
     <section className="bg-background py-24 px-2">
       <div className="mb-6 lg:mb-16">
-        <h3 className="uppercase text-md font-bold text-red-500 tracking-widest text-center">
+        <h3 className="uppercase text-md font-bold text-primary tracking-widest text-center">
           Mis skills
         </h3>
         <h2 className="text-2xl font-bold tracking-widest text-center">

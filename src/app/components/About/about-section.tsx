@@ -81,7 +81,7 @@ export default async function AboutSection(
             href="https://www.linkedin.com/in/josescap/"
             target="_blank"
             className={
-              buttonVariants({ variant: 'linkedin', className: 'cursor-pointer' })
+              buttonVariants({ variant: 'outline-primary', className: 'cursor-pointer' })
             }
           >
             <IconBrandLinkedin /> Contactame
