@@ -9,10 +9,7 @@ export default function ResumeSection({ journeys }: Props) {
   return (
     <section className="bg-neutral-900 py-12 px-2">
       <div className="mb-6 lg:mb-16">
-        <h3 className="uppercase text-md font-bold text-primary tracking-widest text-center">
-          Mi curriculum
-        </h3>
-        <h2 className="text-2xl font-bold tracking-widest text-center">
+        <h2 className="uppercase text-2xl font-bold tracking-widest text-center">
           Mi trayectoría
         </h2>
       </div>
