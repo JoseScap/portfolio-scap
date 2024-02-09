@@ -3,8 +3,6 @@
 import { cn } from "@/lib/utils"
 import { VariantProps, cva } from "class-variance-authority"
 
-
-
 export const colorIndicatorVariants = cva(
   'w-6 h-6 rounded-full flex justify-center items-center relative',
   {
