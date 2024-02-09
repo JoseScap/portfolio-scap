@@ -7,13 +7,13 @@ import { useTheme } from "next-themes";
 import ColorIndicator, { ColorIndicatorProps } from "./color-indicator";
 
 const themes: (Pick<ColorIndicatorProps, 'variant'> & { text: string })[] = [
-  { variant: 'red', text: 'Rojo' },
-  { variant: 'rose', text: 'Rosa' },
+  // { variant: 'red', text: 'Rojo' }, // FIXME: No pasa la prueba de contraste
+  // { variant: 'rose', text: 'Rosa' }, // FIXME: No pasa la prueba de contraste 
   { variant: 'orange', text: 'Naranja' },
   { variant: 'green', text: 'Verde' },
   { variant: 'blue', text: 'Azul' },
   { variant: 'yellow', text: 'Amarillo' },
-  { variant: 'violet', text: 'Violeta' },
+  // { variant: 'violet', text: 'Violeta' }, // FIXME: No pasa la prueba de contraste
 ]
 
 export default function Header() {
@@ -41,7 +41,6 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-              
       </div>
     </header>
   )
