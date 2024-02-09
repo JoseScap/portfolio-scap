@@ -1,3 +1,20 @@
+export type Dictionary = {
+    aboutSection: {
+        aboutMe: string,
+        alias: string
+        description: string
+        fullnameLabel: string
+        fullname: string
+        ageLabel: string
+        age: string
+        fromLabel: string
+        from: string
+        emailLabel: string
+        email: string
+        seeMyResume: string
+        contactMe: string
+    }
+}
 
 export type Skill = {
     fav: boolean
