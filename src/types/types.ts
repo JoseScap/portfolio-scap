@@ -1,8 +1,31 @@
-import { Tables } from "./supabase.types";
 
-export type Profile = Omit<Tables<'Profile'>, 'created_at'>
-export type JourneyItem = Omit<Tables<'JourneyItem'>, 'created_at' | 'journeyId'>
-export type Journey = Omit<Tables<'Journey'>, 'created_at'> & {
-    JourneyItem?: JourneyItem[]
+export type Skill = {
+    fav: boolean
+    title: string
+    years: number
 }
-export type Skill = Omit<Tables<'Skill'>, 'created_at'>
+
+export type Profile = {
+    fullname:    string;
+    alias:       string;
+    description: string;
+    age:         number;
+    email:       string;
+    from:        string;
+}
+
+
+export type Journey
+ = {
+    startYear:   string;
+    name:        string;
+    fav:         boolean;
+    JourneyItem: JourneyItem[];
+}
+
+export type JourneyItem = {
+    title:     string;
+    place:     string;
+    startDate: string;
+    endDate:   string | null;
+}
