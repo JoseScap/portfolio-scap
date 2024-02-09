@@ -1,5 +1,5 @@
 import { Skill } from "@/types/types";
-import { Progress } from "../../../components/ui/progress";
+import { Progress } from "../../../../components/ui/progress";
 
 
 interface Props extends Skill {

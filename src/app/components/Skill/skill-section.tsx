@@ -1,21 +1,14 @@
-'use client'
-
+import Collapsible from "@/components/custom-ui/collapsible";
 import { Skill } from "@/types/types";
-import { useState } from "react";
-import { Button } from "../../../components/ui/button";
-import SkillProgress from "./skill-progress";
+import SkillList from "./components/skill-list";
 
 interface Props {
-  allSkills: Skill[]
+  nonFavSkills: Skill[]
   favSkills: Skill[]
   maxYear: number
 }
 
-export default function SkillSection({ allSkills, favSkills, maxYear }: Props) {
-  const [showMore, setShowMore] = useState(false)
-
-  const handleShowMore = () => setShowMore(prev => !prev)
-
+export default function SkillSection({ nonFavSkills, favSkills, maxYear }: Props) {
   return (
     <section className="bg-background py-24 px-2">
       <div className="mb-6 lg:mb-16">
@@ -23,20 +16,14 @@ export default function SkillSection({ allSkills, favSkills, maxYear }: Props) {
           Conocimientos tecnicos
         </h2>
       </div>
-      <div className="max-w-5xl mx-auto w-11/12 grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-8 mb-8">
+      <SkillList skills={favSkills} maxYear={maxYear} />
+      <Collapsible moreText="Ver todas" lessText="Ver solo favoritas" >
         {
-          showMore
-            ? allSkills.map((skill, idx) => (
-              <SkillProgress key={idx} {...skill} max={maxYear} />
-            ))
-            : favSkills.map((skill, idx) => (
-              <SkillProgress key={idx} {...skill} max={maxYear} />
-            ))
+          [
+            <SkillList skills={nonFavSkills} maxYear={maxYear} key={1} />
+          ]
         }
-      </div>
-      <div className="max-w-5xl mx-auto w-11/12 flex justify-center">
-        <Button variant={'outline-primary'} onClick={handleShowMore}>{!showMore ? 'Ver todas' : 'Ver solo favoritas'}</Button>
-      </div>
+      </Collapsible>
     </section>
   )
 }
