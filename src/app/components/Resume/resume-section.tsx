@@ -1,5 +1,5 @@
 import { Journey } from "@/types/types";
-import MyJourney from "../custom-components/my-journey";
+import MyJourney from "./my-journey";
 
 interface Props {
   journeys: Journey[]
@@ -18,8 +18,8 @@ export default function ResumeSection({ journeys }: Props) {
       </div>
       <div className="max-w-5xl mx-auto w-11/12 grid grid-cols-1 lg:grid-cols-2">
         {
-          journeys.map(({ id, name, startYear, JourneyItem }) => <MyJourney
-            key={id}
+          journeys.map(({ name, startYear, JourneyItem }, idx) => <MyJourney
+            key={idx}
             title={name}
             journeys={JourneyItem ?? []}
             startJourney={startYear}

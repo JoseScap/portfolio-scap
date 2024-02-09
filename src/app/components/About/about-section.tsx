@@ -2,7 +2,7 @@ import AboutImage from "@/assets/about.png";
 import { Profile } from "@/types/types";
 import { IconArrowUpRight, IconBrandLinkedin } from "@tabler/icons-react";
 import Image from "next/image";
-import { buttonVariants } from "../ui/button";
+import { buttonVariants } from "../../../components/ui/button";
 
 interface Props {
   profile: Profile

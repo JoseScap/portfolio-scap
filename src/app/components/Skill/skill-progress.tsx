@@ -1,6 +1,6 @@
 import { Skill } from "@/types/types";
 import { IconStar, IconStarOff } from "@tabler/icons-react";
-import { Progress } from "../ui/progress";
+import { Progress } from "../../../components/ui/progress";
 
 
 interface Props extends Skill {
