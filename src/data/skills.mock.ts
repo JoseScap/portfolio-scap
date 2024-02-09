@@ -1,6 +1,6 @@
 import { Skill } from "@/types/types";
 
-const allSkills: Skill[] = [
+const mySkills: Skill[] = [
   {
     fav: true,
     title: 'React JS',
@@ -63,7 +63,8 @@ const allSkills: Skill[] = [
   },
 ]
 
-export const favSkills = allSkills.filter(s => s.fav)
-export const allSortedSkills = [...allSkills].sort((a, b) => b.years - a.years)
+export const favSkills = mySkills.filter(s => s.fav)
+export const nonFavSkills = mySkills.filter(s => !s.fav)
+export const allSkills = [...favSkills, ...nonFavSkills]
 
-export const maxYear = Math.max(...allSkills.map<number>(fs => fs.years))
+export const maxYear = Math.max(...mySkills.map<number>(fs => fs.years))
