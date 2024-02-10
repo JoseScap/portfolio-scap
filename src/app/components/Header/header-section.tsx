@@ -32,7 +32,7 @@ const langs: { lang: DictionaryKind, label: string }[] = [
 ]
 
 export default function HeaderSection({
-  translations = { brand: 'Josescap', customize: 'Personalizar' }
+  translations = { brand: 'Josescap', customize: 'Personalizar', lang: 'es' }
 }: PropsWithTranslations<HeaderDictionary>) {
   const { setTheme, theme } = useTheme()
   const { brand, customize } = translations
