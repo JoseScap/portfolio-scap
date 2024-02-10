@@ -1,3 +1,4 @@
+import AboutSection from "../components/About/about-section"
 import HeaderSection from "../components/Header/header-section"
 import { DictionaryKind, getDictionary } from "./dictionaries"
 
@@ -19,12 +20,12 @@ interface Props {
 }
 
 export default async function Home({ params: { lang } }: Props) {
-  const { header } = await getDictionary(lang)
+  const { header, about } = await getDictionary(lang)
 
   return (
     <>
       <HeaderSection translations={header} />
-      {/* <AboutSection lang={lang} /> */}
+      <AboutSection translations={about} />
       {/* <ResumeSection journeys={journeyData} /> */}
       {/* <SkillSection
         nonFavSkills={nonFavSkills}

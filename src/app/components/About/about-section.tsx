@@ -1,52 +1,52 @@
+import { PropsWithTranslations } from "@/interfaces/interfaces";
+import { AboutDictionary } from "@/types/types";
 import { IconArrowUpRight, IconBrandLinkedin } from "@tabler/icons-react";
 import { buttonVariants } from "../../../components/ui/button";
 
-interface Props {
-  lang?: string
-}
-
-export default async function AboutSection() {
+export default async function AboutSection({
+  translations
+}: PropsWithTranslations<AboutDictionary>) {
   return (
     <main className="bg-background min-h-screen px-2 max-w-5xl mx-auto w-11/12 grid grid-cols-1">
       <div className="flex flex-col py-20 gap-8 justify-center">
         <div>
           <h2 className="uppercase text-md lg:text-lg lg:mb-2 font-bold text-primary tracking-widest">
-            {aboutSection.aboutMe}
+            {translations.aboutMe}
           </h2>
           <h1 className="text-2xl lg:text-3xl lg:mb-2 font-bold tracking-widest">
-            {aboutSection.alias}
+            {translations.alias}
           </h1>
           <p className="text-md lg: text-lg text-stone-400">
-            {aboutSection.description}
+            {translations.description}
           </p>
         </div>
         <div>
           <div className="flex text-md lg:text-lg text-wrap">
-            <p className="w-24">{aboutSection.fullnameLabel}</p>
+            <p className="w-24">{translations.fullnameLabel}</p>
             <span className="w-4">:</span>
             <p className="text-stone-400">
-              {aboutSection.fullname}
+              {translations.fullname}
             </p>
           </div>
           <div className="flex text-md lg:text-lg">
-            <p className="w-24">{aboutSection.ageLabel}</p>
+            <p className="w-24">{translations.ageLabel}</p>
             <span className="w-4">:</span>
             <p className="text-stone-400">
-              {aboutSection.age}
+              {translations.age}
             </p>
           </div>
           <div className="flex text-md lg:text-lg">
-            <p className="w-24">{aboutSection.fromLabel}</p>
+            <p className="w-24">{translations.fromLabel}</p>
             <span className="w-4">:</span>
             <p className="text-stone-400">
-              {aboutSection.from}
+              {translations.from}
             </p>
           </div>
           <div className="hidden sm:flex text-md lg:text-lg">
-            <p className="w-24">{aboutSection.emailLabel}</p>
+            <p className="w-24">{translations.emailLabel}</p>
             <span className="w-4">:</span>
             <p className="text-stone-400">
-              {aboutSection.email}
+              {translations.email}
             </p>
           </div>
         </div>
@@ -58,7 +58,7 @@ export default async function AboutSection() {
               buttonVariants({ variant: 'default', size: 'lg', className: 'cursor-pointer' })
             }
           >
-            <IconArrowUpRight /> {aboutSection.seeMyResume}
+            <IconArrowUpRight /> {translations.seeMyResume}
           </a>
           <a
             href="https://www.linkedin.com/in/josescap/"
@@ -67,7 +67,7 @@ export default async function AboutSection() {
               buttonVariants({ variant: 'outline-primary', size: 'lg', className: 'cursor-pointer' })
             }
           >
-            <IconBrandLinkedin /> {aboutSection.contactMe}
+            <IconBrandLinkedin /> {translations.contactMe}
           </a>
         </div>
       </div>
