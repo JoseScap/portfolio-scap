@@ -6,7 +6,7 @@ export default function ResumeSection({ translations }: PropsWithTranslations<Jo
   const { title, journey: journeys } = translations
 
   return (
-    <section className="bg-neutral-900 py-12 px-2">
+    <section id="resume" className="bg-neutral-900 py-12 px-2">
       <div className="mb-6 lg:mb-16">
         <h2 className="uppercase text-2xl font-bold tracking-widest text-center">
           {title}

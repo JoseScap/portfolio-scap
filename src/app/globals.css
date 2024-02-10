@@ -203,7 +203,7 @@
     }
 
     50% {
-        transform: translateY(-32px);
+        transform: translateY(-16px);
     }
 }
 
