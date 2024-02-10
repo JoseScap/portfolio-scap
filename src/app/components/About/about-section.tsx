@@ -7,8 +7,8 @@ export default async function AboutSection({
   translations
 }: PropsWithTranslations<AboutDictionary>) {
   return (
-    <main className="bg-background min-h-screen px-2 max-w-5xl mx-auto w-11/12 grid grid-cols-1">
-      <div className="flex flex-col py-20 gap-8 justify-center">
+    <main className="bg-background px-2 max-w-5xl mx-auto w-11/12 grid grid-cols-1">
+      <div className="flex flex-col py-48 gap-8 justify-center">
         <div>
           <h2 className="uppercase text-md lg:text-lg lg:mb-2 font-bold text-primary tracking-widest">
             {translations.aboutMe}
