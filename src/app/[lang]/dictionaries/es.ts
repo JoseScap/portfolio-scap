@@ -2,10 +2,12 @@ import { Dictionary } from "@/types/types";
 
 const spanishDictionary: Dictionary = {
   header: {
+    lang: 'es',
     brand: 'Josescap',
     customize: 'Personalizar'
   },
   about: {
+    lang: 'es',
     aboutMe: 'Acerca de Mi',
     alias: 'Josescap',
     description: 'Desarrollador Frontend con 4 años de experiencia. Experto en crear código robusto y escalable, con un fuerte énfasis en la mantenibilidad. Cuento con experiencia en el desarrollo e implementación de aplicaciones web y APIs RESTful. Busco con entusiasmo una oportunidad desafiante que enriquezca mi trayectoria profesional y me permita aportar un valor significativo.',
@@ -21,6 +23,7 @@ const spanishDictionary: Dictionary = {
     contactMe: 'Contactame',
   },
   journey: {
+    lang: 'es',
     title: 'Mi trayectoría',
     journey: [
       {
@@ -67,7 +70,8 @@ const spanishDictionary: Dictionary = {
           },
         ]
       }
-    ]
+    ],
+    current: 'Actualidad'
   }
 }
 

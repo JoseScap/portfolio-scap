@@ -1,24 +1,19 @@
+import { PropsWithTranslations } from "@/interfaces/interfaces"
 import { formatJourneyDate } from "@/lib/utils"
-import { JourneyItem } from "@/types/types"
-import { IconBriefcase, IconBulb, IconCalendar, IconSchool } from "@tabler/icons-react"
-import { useCallback } from "react"
+import { JourneyDictionary, JourneyItem } from "@/types/types"
+import { IconBulb, IconCalendar } from "@tabler/icons-react"
 
-interface Props {
-    journeyIcon?: JourneyIcon
-    journeys: JourneyItem[]
-    startJourney: string
-    title: string
+interface Props extends PropsWithTranslations<JourneyDictionary> {
+  journeys: JourneyItem[]
+  startJourney: string
+  title: string
 }
 
-type JourneyIcon = keyof typeof journeyIcons
-
-export default function MyJourney({ journeyIcon = 'idea',journeys, startJourney, title   }: Props) {
-  const Icon = useCallback(() => journeyIcons[journeyIcon], [journeyIcon])
-  
+export default function MyJourney({ journeys, startJourney, title, translations: { current, lang } }: Props) {
   return (
     <div className="py-4">
       <div className="flex gap-2 mb-4">
-        <span className="text-primary"><Icon /></span>
+        <span className="text-primary"><IconBulb /></span>
         <h4 className="uppercase text-xl font-bold">{title}</h4>
       </div>
       <div>
@@ -28,7 +23,7 @@ export default function MyJourney({ journeyIcon = 'idea',journeys, startJourney,
             <div className="absolute top-[6px] left-[2px] w-4 h-4 bg-background rounded-full border-4 border-primary"></div>
             <h5 className="text-lg font-bold">{title}</h5>
             <h6 className="text-md text-primary mt-2">{place}</h6>
-            <p className="font-bold text-secondary-background flex gap-2 mt-2"><IconCalendar /> {formatJourneyDate(startDate)} - {endDate ? formatJourneyDate(endDate) : 'Current'}</p>
+            <p className="font-bold text-secondary-background flex gap-2 mt-2"><IconCalendar /> {formatJourneyDate(startDate, lang)} - {endDate ? formatJourneyDate(endDate, lang) : current}</p>
           </div>)
         }
         <div className={`relative ps-8 pb-4`}>
@@ -38,10 +33,4 @@ export default function MyJourney({ journeyIcon = 'idea',journeys, startJourney,
       </div>
     </div>
   )
-}
-
-const journeyIcons = {
-  education: <IconSchool />,
-  experience: <IconBriefcase />,
-  idea: <IconBulb />
 }

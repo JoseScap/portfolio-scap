@@ -19,6 +19,7 @@ export default function ResumeSection({ translations }: PropsWithTranslations<Jo
             title={name}
             journeys={JourneyItem ?? []}
             startJourney={startYear}
+            translations={translations}
           />)
         }
       </div>

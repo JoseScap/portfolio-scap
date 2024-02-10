@@ -2,10 +2,12 @@ import { Dictionary } from "@/types/types";
 
 const englishDictionary: Dictionary = {
   header: {
+    lang: 'en',
     brand: 'Josescap',
     customize: 'Customize'
   },
   about: {
+    lang: 'en',
     aboutMe: 'About me',
     alias: 'Josescap',
     description: 'Frontend Developer with 4 years of experience. Expert in creating robust and scalable code, with a strong emphasis on maintainability. I have experience in the development and implementation of web applications and RESTful APIs. I am eagerly seeking a challenging opportunity that will enrich my professional journey and allow me to contribute significant value.',
@@ -21,6 +23,7 @@ const englishDictionary: Dictionary = {
     contactMe: 'Contact me',
   },
   journey: {
+    lang: 'en',
     title: 'My journey',
     journey: [
       {
@@ -67,7 +70,8 @@ const englishDictionary: Dictionary = {
           },
         ]
       }
-    ]
+    ],
+    current: 'Current'
   }
 }
 

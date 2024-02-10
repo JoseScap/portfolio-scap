@@ -1,15 +1,21 @@
+import { DictionaryKind } from "@/app/[lang]/dictionaries"
+
 export type Dictionary = {
-    header: HeaderDictionary,
+    header: HeaderDictionary
     about: AboutDictionary
     journey: JourneyDictionary
 }
 
-export type HeaderDictionary = {
+export type Lang = {
+  lang: DictionaryKind
+}
+
+export type HeaderDictionary = Lang & {
     brand: string
     customize: string
 }
 
-export type AboutDictionary = {
+export type AboutDictionary = Lang & {
     aboutMe: string,
     alias: string
     description: string
@@ -25,9 +31,10 @@ export type AboutDictionary = {
     contactMe: string
 }
 
-export type JourneyDictionary = {
+export type JourneyDictionary = Lang & {
     title: string
     journey: Journey[]
+    current: string
 }
 
 export type Skill = {
