@@ -180,6 +180,8 @@
         --input: 215 27.9% 16.9%;
         --ring: 263.4 70% 50.4%;
     }
+
+
 }
 
 
@@ -191,4 +193,20 @@
     body {
         @apply bg-background text-foreground;
     }
+}
+
+@keyframes bounceUpDown {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-32px);
+    }
+}
+
+.animated-bounce {
+    animation: bounceUpDown 3s infinite;
 }

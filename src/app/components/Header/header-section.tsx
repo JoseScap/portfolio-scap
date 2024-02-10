@@ -40,7 +40,9 @@ export default function HeaderSection({
   return (
     <header className="border-b z-50 fixed w-screen top-0 bg-background">
       <div className="max-w-7xl mx-auto w-11/12 py-4 flex flex-row justify-between items-center">
-        <h2 className="uppercase text-md font-bold text-primary">{brand}</h2>
+        <Link href="/" className="uppercase text-md font-bold text-primary">
+          {brand}
+        </Link>
         <div className="flex flex-row gap-x-2">
           {/* SELECCION DE IDIOMA */}
           <DropdownMenu>
