@@ -1,3 +1,4 @@
+import { favSkills, maxYear, nonFavSkills } from "@/data/skills.mock";
 import { Dictionary } from "@/types/types";
 
 const spanishDictionary: Dictionary = {
@@ -72,6 +73,17 @@ const spanishDictionary: Dictionary = {
       }
     ],
     current: 'Actualidad'
+  },
+  skills: {
+    lang: 'es',
+    title: 'Conocimientos tecnicos',
+    year: 'Año',
+    years: 'Años',
+    nonFavSkills: nonFavSkills,
+    favSkills: favSkills,
+    maxYear: maxYear,
+    moreSkills: 'Ver todas',
+    lessSkills: 'Ver solo favoritas'
   }
 }
 

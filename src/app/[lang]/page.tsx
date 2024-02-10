@@ -1,6 +1,7 @@
 import AboutSection from "../components/About/about-section"
 import HeaderSection from "../components/Header/header-section"
 import ResumeSection from "../components/Resume/resume-section"
+import SkillSection from "../components/Skill/skill-section"
 import { DictionaryKind, getDictionary } from "./dictionaries"
 
 export const revalidate = 600
@@ -21,18 +22,14 @@ interface Props {
 }
 
 export default async function Home({ params: { lang } }: Props) {
-  const { header, about, journey } = await getDictionary(lang)
+  const { header, about, journey, skills } = await getDictionary(lang)
 
   return (
     <>
       <HeaderSection translations={header} />
       <AboutSection translations={about} />
       <ResumeSection translations={journey} />
-      {/* <SkillSection
-        nonFavSkills={nonFavSkills}
-        favSkills={favSkills}
-        maxYear={maxYear}
-      /> */}
+      <SkillSection translations={skills} />
     </>
   )
 }

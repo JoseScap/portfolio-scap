@@ -4,6 +4,7 @@ export type Dictionary = {
     header: HeaderDictionary
     about: AboutDictionary
     journey: JourneyDictionary
+    skills: SkillDictionary
 }
 
 export type Lang = {
@@ -29,6 +30,17 @@ export type AboutDictionary = Lang & {
     email: string
     seeMyResume: string
     contactMe: string
+}
+
+export type SkillDictionary = Lang & {
+    title: string
+    year: string
+    years: string
+    nonFavSkills: Skill[]
+    favSkills: Skill[]
+    maxYear: number
+    moreSkills: string
+    lessSkills: string
 }
 
 export type JourneyDictionary = Lang & {
