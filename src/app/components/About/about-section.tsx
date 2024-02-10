@@ -9,7 +9,10 @@ export default async function AboutSection({
 }: PropsWithTranslations<AboutDictionary>) {
   return (
     <main className="bg-background min-h-screen relative">
-      <a href="#resume" className="absolute cursor-pointer hover:bg-primary/50 bottom-8 right-8 w-8 h-12 hover:rounded-lg pb-1 border-b-2 border-primary hover:border-primary/50 flex flex-col items-center justify-end transition-all">
+      <a
+        href="#resume"
+        className="animated-bounce-wrapper"
+      >
         <ChevronDown className="animated-bounce" />
       </a>
       <div className="max-w-5xl w-11/12 mx-auto">

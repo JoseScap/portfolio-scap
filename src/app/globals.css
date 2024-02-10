@@ -207,6 +207,10 @@
     }
 }
 
+.animated-bounce-wrapper {
+    @apply absolute cursor-pointer hover:bg-primary/50 bottom-8 right-8 w-8 h-12 hover:rounded-lg pb-1 border-b-2 border-primary hover:border-primary/50 flex flex-col items-center justify-end transition-all;
+}
+
 .animated-bounce {
     animation: bounceUpDown 3s infinite;
 }

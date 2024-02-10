@@ -5,7 +5,10 @@ const spanishDictionary: Dictionary = {
   header: {
     lang: 'es',
     brand: 'Josescap',
-    customize: 'Personalizar'
+    customize: 'Personalizar',
+    description: 'Aquí encontrarás todas las configuraciones del sitio para que se ajusten a tus gustos o puedas personalizarlas a tu manera.',
+    colors: 'Colores',
+    langs: 'Idiomas'
   },
   about: {
     lang: 'es',
