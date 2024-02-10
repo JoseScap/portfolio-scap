@@ -1,12 +1,14 @@
 export type Dictionary = {
     header: HeaderDictionary,
     about: AboutDictionary
+    journey: JourneyDictionary
 }
 
 export type HeaderDictionary = {
     brand: string
     customize: string
 }
+
 export type AboutDictionary = {
     aboutMe: string,
     alias: string
@@ -21,6 +23,11 @@ export type AboutDictionary = {
     email: string
     seeMyResume: string
     contactMe: string
+}
+
+export type JourneyDictionary = {
+    title: string
+    journey: Journey[]
 }
 
 export type Skill = {
