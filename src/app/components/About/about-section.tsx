@@ -12,6 +12,7 @@ export default async function AboutSection({
       <a
         href="#resume"
         className="animated-bounce-wrapper"
+        aria-label="See my resume on next section"
       >
         <ChevronDown className="animated-bounce" />
       </a>

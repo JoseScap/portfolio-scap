@@ -12,9 +12,9 @@ export default function SkillProgress({ title, years, yearLabel, yearsLabel, max
   return (
     <div className=" flex flex-col gap-1">
       <div className="flex justify-between">
-        <h5 className="flex gap-1">
+        <h4 className="flex gap-1">
           {title}
-        </h5>
+        </h4>
         <p>{years} {years > 1 ? yearsLabel : yearLabel}</p>
       </div>
       <div>
