@@ -1,4 +1,5 @@
 import AboutSection from "../components/About/about-section"
+import FooterSection from "../components/Footer/footer-section"
 import HeaderSection from "../components/Header/header-section"
 import ResumeSection from "../components/Resume/resume-section"
 import SkillSection from "../components/Skill/skill-section"
@@ -22,7 +23,7 @@ interface Props {
 }
 
 export default async function Home({ params: { lang } }: Props) {
-  const { header, about, journey, skills } = await getDictionary(verifyLang(lang))
+  const { header, about, journey, skills, footer } = await getDictionary(verifyLang(lang))
 
   return (
     <>
@@ -30,6 +31,7 @@ export default async function Home({ params: { lang } }: Props) {
       <AboutSection translations={about} />
       <ResumeSection translations={journey} />
       <SkillSection translations={skills} />
+      <FooterSection translations={footer} />
     </>
   )
 }
