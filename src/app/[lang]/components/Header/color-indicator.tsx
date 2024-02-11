@@ -48,16 +48,16 @@ const colorCircleIndicatorVariants: typeof colorIndicatorVariants = cva(
 )
 
 export interface ColorIndicatorProps extends VariantProps<typeof colorIndicatorVariants> {
-  active: boolean
+  active?: boolean
 }
 
-export default function ColorIndicator({ active, variant, size = 'md' }: ColorIndicatorProps) {
+export default function ColorIndicator({ active = false, variant, size = 'md' }: ColorIndicatorProps) {
   return (
     <div className={cn(colorIndicatorVariants({ variant, size }))}>
       {
         active && (
           <>
-            <div className={cn(colorCircleIndicatorVariants({ variant }))}/>
+            <div className={cn(colorCircleIndicatorVariants({ variant, size }))}/>
           </>
         )
       }
