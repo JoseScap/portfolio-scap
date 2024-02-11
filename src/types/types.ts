@@ -14,6 +14,8 @@ export type Lang = {
 
 export type HeaderDictionary = Lang & {
     brand: string
+    homeLink: string
+    blogLink: string
     customize: string
     description: string
     colors: string

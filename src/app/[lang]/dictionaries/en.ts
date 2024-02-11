@@ -5,6 +5,8 @@ const englishDictionary: Dictionary = {
   header: {
     lang: 'en',
     brand: 'Josescap',
+    homeLink: 'Home',
+    blogLink: 'Blog',
     customize: 'Customize',
     description: 'Here you will find all the site settings, so you can tailor them to your preferences or have fun experimenting with them!',
     colors: 'Colors',

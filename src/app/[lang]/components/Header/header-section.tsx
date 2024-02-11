@@ -4,6 +4,7 @@ import { DictionaryKind } from "@/app/[lang]/dictionaries";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { PropsWithTranslations } from "@/interfaces/interfaces";
@@ -40,7 +41,7 @@ export default function HeaderSection({
   translations
 }: PropsWithTranslations<HeaderDictionary>) {
   const { setTheme, theme } = useTheme()
-  const { brand, customize, description, colors, langs, lang, close } = translations
+  const { brand, homeLink, blogLink, description, colors, langs, lang, close } = translations
   const [sheet, setSheet] = useState(false)
   const langBaseId = useId()
   
@@ -63,9 +64,31 @@ export default function HeaderSection({
   return (
     <header className="border-b z-50 fixed w-screen top-0 bg-background">
       <div className="max-w-7xl mx-auto w-11/12 py-4 flex flex-row justify-between items-center">
-        <Link href="/" className="uppercase text-md font-bold text-primary">
-          {brand}
-        </Link>
+        <NavigationMenu>
+          <NavigationMenuList className="space-x-2">
+            <NavigationMenuItem>
+              <Link href={`/${selectedLang?.lang ?? ''}`} className="uppercase text-md font-bold text-primary">
+                <NavigationMenuLink>
+                  {brand}
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href={`/${selectedLang?.lang ?? ''}`}>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  {homeLink}
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="https://blog.josescap.tech/">
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  {blogLink}
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
         {
           LANGS.map((l)  => (
             <Link
