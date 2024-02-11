@@ -2,15 +2,14 @@
 
 import { DictionaryKind } from "@/app/[lang]/dictionaries";
 import { Button } from "@/components/ui/button";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { PropsWithTranslations } from "@/interfaces/interfaces";
 import { HeaderDictionary } from "@/types/types";
 import { VariantProps } from "class-variance-authority";
-import { ChevronsUpDown, Menu } from "lucide-react";
+import { FlagIcon, Menu, Paintbrush } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useId, useMemo, useState } from "react";
@@ -45,7 +44,7 @@ export default function HeaderSection({
   const [sheet, setSheet] = useState(false)
   const langBaseId = useId()
   
-  const [selectedVariant, otherVariants] = useMemo(() => {
+  const [selectedVariant] = useMemo(() => {
     if (theme === undefined) return [null, null]
 
     const selectedVariant = THEMES.find((t) => t.variant === theme)
@@ -54,7 +53,7 @@ export default function HeaderSection({
     return [selectedVariant, otherVariants]
   }, [theme])
 
-  const [selectedLang, otherLangs] = useMemo(() => {
+  const [selectedLang] = useMemo(() => {
     const selectedLang = LANGS.find((l) => l.lang === lang)
     const otherLangs = LANGS.filter((l) => l.lang !== lang)
 
@@ -67,111 +66,75 @@ export default function HeaderSection({
         <Link href="/" className="uppercase text-md font-bold text-primary">
           {brand}
         </Link>
+        {
+          LANGS.map((l)  => (
+            <Link
+              id={`${langBaseId}-${l.lang}`}
+              href={`/${l.lang}`}
+              key={l.lang}
+              className="hidden"
+            >
+              {l.label} {`${langBaseId}-${l.lang}`}
+            </Link>
+          ))
+        }
         {/* MENU PARA DESKTOP ---------------------------- */}
-        <div className="hidden lg:block">
-          <Sheet open={sheet} onOpenChange={setSheet}>
-            <SheetTrigger asChild>
-              <Button variant="secondary" size="icon" aria-label="Menu Button">
-                <Menu />
+        <div className="hidden lg:block space-x-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Button variant="outline" className="gap-x-2">
+                <FlagIcon />
               </Button>
-            </SheetTrigger>
-            <SheetContent>
-              <SheetHeader>
-                <SheetTitle>{brand}</SheetTitle>
-                <SheetDescription>{description}</SheetDescription>
-              </SheetHeader>
-              <Separator className="my-4" />
-              {/* SELECCION DE COLOR ---------------------------------------- */}
-              <Collapsible className="space-y-2">
-                <div className="flex items-center justify-between space-x-4 px-4">
-                  <h4 className="text-sm font-semibold">
-                    {colors}
-                  </h4>
-                  <CollapsibleTrigger asChild>
-                    <Button variant="ghost" size="sm" className="w-9 p-0">
-                      <ChevronsUpDown className="h-4 w-4" />
-                      <span className="sr-only">Toggle</span>
-                    </Button>
-                  </CollapsibleTrigger>
-                </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>
+                {langs}
+              </DropdownMenuLabel>
+              <div className="space-y-1">
+                <Separator />
                 {
-                  !!selectedVariant && (
-                    <div className="rounded-md border-2 hover:bg-secondary border-primary px-4 py-3 flex flex-row gap-4 items-center font-mono text-sm cursor-pointer">
-                      <ColorIndicator variant={selectedVariant.variant} active /> {selectedVariant.label}
-                    </div>
-                  )
-                }
-                <CollapsibleContent className="space-y-2">
-                  {
-                    !!otherVariants &&
-                    otherVariants.length &&
-                    otherVariants.map((v) => (
-                      <div
-                        onClick={() => setTheme(v.variant ?? '')}
-                        key={v.variant}
-                        className="rounded-md hover:bg-secondary px-4 py-3 flex flex-row gap-4 items-center font-mono text-sm cursor-pointer">
-                        <ColorIndicator variant={v.variant} active /> {v.label}
-                      </div>
-                    ))
-                  }
-                </CollapsibleContent>
-              </Collapsible>
-              <Separator className="my-4" />
-              {/* SELECCION DE IDIOMA --------------------------------------- */}
-              <Collapsible className="space-y-2">
-                <div className="flex items-center justify-between space-x-4 px-4">
-                  <h4 className="text-sm font-semibold">
-                    {langs}
-                  </h4>
-                  <CollapsibleTrigger asChild>
-                    <Button variant="ghost" size="sm" className="w-9 p-0">
-                      <ChevronsUpDown className="h-4 w-4" />
-                      <span className="sr-only">Toggle</span>
-                    </Button>
-                  </CollapsibleTrigger>
-                </div>
-                {
-                  !!selectedLang && (
-                    <Link
-                      className="rounded-md border-2 border-primary px-4 py-3 flex flex-row gap-4 items-center font-mono text-sm"
-                      href={`/${selectedLang.lang}`}
+                  LANGS.map((l) => (
+                    <DropdownMenuItem
+                      key={l.lang}
+                      className="cursor-pointer gap-x-2 hover:bg-secondary"
+                      onClick={() => document.getElementById(`${langBaseId}-${l.lang}`)?.click()}
                     >
                       <div className="w-6 h-6 flex items-center">
-                        <Flag code={FLAGS[selectedLang.lang]} height="16px" />
+                        <Flag code={FLAGS[l.lang]} height="16px" />
                       </div>
-                      {selectedLang.label}
-                    </Link>
-                  )
+                      {l.label}
+                    </DropdownMenuItem>
+                  ))
                 }
-                <CollapsibleContent>
-                  {
-                    !!otherLangs &&
-                    otherLangs.length &&
-                    otherLangs.map((l) => (
-                      <Link
-                        key={l.lang}
-                        className="rounded-md hover:bg-secondary px-4 py-3 flex flex-row gap-4 items-center font-mono text-sm"
-                        href={`/${l.lang}`}
-                      >
-                        <div className="w-6 h-6 flex items-center">
-                          <Flag code={FLAGS[l.lang]} height="16px" />
-                        </div>
-                        {l.label}
-                      </Link>
-                    ))
-                  }
-                </CollapsibleContent>
-              </Collapsible>
-              <Separator className="my-4" />
-              <SheetFooter>
-                <SheetClose
-                  className="hover:bg-secondary/50 rounded-md py-2 px-4"
-                >
-                  {close}
-                </SheetClose>
-              </SheetFooter>
-            </SheetContent>
-          </Sheet>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Button variant="outline" className="gap-x-2">
+                <Paintbrush />
+                <ColorIndicator size="md" variant={selectedVariant?.variant} />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>{colors}</DropdownMenuLabel>
+              <div className="space-y-1">
+                <Separator />
+                {
+                  THEMES.map((v) => (
+                    <DropdownMenuItem
+                      key={v.variant}
+                      onClick={() => setTheme(v.variant ?? 'blue')}
+                      className="cursor-pointer gap-x-2 hover:bg-secondary"
+                    >
+                      <ColorIndicator size="md" active={theme === v.variant} variant={v.variant} />
+                      {v.label}
+                    </DropdownMenuItem>
+                  ))
+                }
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
         {/* MENU PARA MOBILE ------------------------------------- */}
         <div className="block lg:hidden">
@@ -226,18 +189,6 @@ export default function HeaderSection({
                     {langs}
                   </h4>
                 </div>
-                {
-                  LANGS.map((l)  => (
-                    <Link
-                      id={`${langBaseId}-${l.lang}`}
-                      href={`/${l.lang}`}
-                      key={l.lang}
-                      className="hidden"
-                    >
-                      {l.label} {`${langBaseId}-${l.lang}`}
-                    </Link>
-                  ))
-                }
                 <Select
                   value={selectedLang?.lang ?? ''}
                   onValueChange={value => document.getElementById(`${langBaseId}-${value}`)?.click()}
