@@ -2,7 +2,7 @@ import AboutSection from "../components/About/about-section"
 import HeaderSection from "../components/Header/header-section"
 import ResumeSection from "../components/Resume/resume-section"
 import SkillSection from "../components/Skill/skill-section"
-import { DictionaryKind, getDictionary } from "./dictionaries"
+import { DictionaryKind, getDictionary, verifyLang } from "./dictionaries"
 
 export const revalidate = 600
 
@@ -22,7 +22,7 @@ interface Props {
 }
 
 export default async function Home({ params: { lang } }: Props) {
-  const { header, about, journey, skills } = await getDictionary(lang)
+  const { header, about, journey, skills } = await getDictionary(verifyLang(lang))
 
   return (
     <>

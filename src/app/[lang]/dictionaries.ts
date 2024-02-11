@@ -8,3 +8,9 @@ const dictionaries = {
 export type DictionaryKind = keyof typeof dictionaries
 
 export const getDictionary = async (locale: DictionaryKind = 'es') => await dictionaries[locale]()
+
+export const verifyLang = (locale: DictionaryKind): DictionaryKind => {
+  if (dictionaries[locale] !== undefined) return locale
+
+  return 'es'
+}
