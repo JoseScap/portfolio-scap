@@ -17,6 +17,7 @@ export type HeaderDictionary = Lang & {
     description: string
     colors: string
     langs: string
+    close: string
 }
 
 export type AboutDictionary = Lang & {

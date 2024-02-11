@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 import { VariantProps, cva } from "class-variance-authority"
 
 export const colorIndicatorVariants = cva(
-  'w-6 h-6 rounded-full flex justify-center items-center relative',
+  'rounded-full flex justify-center items-center relative',
   {
     variants: {
       variant: {
@@ -15,13 +15,18 @@ export const colorIndicatorVariants = cva(
         blue: 'bg-[#3B82F6]',
         yellow: 'bg-[#FACC15]',
         violet: 'bg-[#6D28D9]',
+      },
+      size: {
+        sm: 'w-4 h-4',
+        md: 'w-6 h-6',
+        lg: 'w-8 h-8',
       }
     }
   }
 )
 
 const colorCircleIndicatorVariants: typeof colorIndicatorVariants = cva(
-  'absolute border-[2px] border-[${color}] w-8 h-8 rounded-full',
+  'absolute border-[2px] border-[${color}] rounded-full',
   {
     variants: {
       variant: {
@@ -32,6 +37,11 @@ const colorCircleIndicatorVariants: typeof colorIndicatorVariants = cva(
         blue: 'border-[#3B82F6]',
         yellow: 'border-[#FACC15]',
         violet: 'border-[#6D28D9]',
+      },
+      size: {
+        sm: 'w-6 h-6',
+        md: 'w-8 h-8',
+        lg: 'w-10 h-10',
       }
     }
   }
@@ -41,9 +51,9 @@ export interface ColorIndicatorProps extends VariantProps<typeof colorIndicatorV
   active: boolean
 }
 
-export default function ColorIndicator({ active, variant }: ColorIndicatorProps) {
+export default function ColorIndicator({ active, variant, size = 'md' }: ColorIndicatorProps) {
   return (
-    <div className={cn(colorIndicatorVariants({ variant }))}>
+    <div className={cn(colorIndicatorVariants({ variant, size }))}>
       {
         active && (
           <>

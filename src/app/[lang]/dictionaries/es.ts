@@ -8,7 +8,8 @@ const spanishDictionary: Dictionary = {
     customize: 'Personalizar',
     description: 'Aquí encontrarás todas las configuraciones del sitio para que se ajusten a tus gustos o puedas personalizarlas a tu manera.',
     colors: 'Colores',
-    langs: 'Idiomas'
+    langs: 'Idiomas',
+    close: 'Cerrar'
   },
   about: {
     lang: 'es',

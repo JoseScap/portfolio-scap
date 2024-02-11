@@ -3,15 +3,17 @@
 import { DictionaryKind } from "@/app/[lang]/dictionaries";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { PropsWithTranslations } from "@/interfaces/interfaces";
 import { HeaderDictionary } from "@/types/types";
 import { VariantProps } from "class-variance-authority";
 import { ChevronsUpDown, Menu } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import Flag from "react-world-flags";
 import ColorIndicator, { colorIndicatorVariants } from "./color-indicator";
 
@@ -39,8 +41,9 @@ export default function HeaderSection({
   translations
 }: PropsWithTranslations<HeaderDictionary>) {
   const { setTheme, theme } = useTheme()
-  const { brand, customize, description, colors, langs, lang } = translations
+  const { brand, customize, description, colors, langs, lang, close } = translations
   const [sheet, setSheet] = useState(false)
+  const langBaseId = useId()
   
   const [selectedVariant, otherVariants] = useMemo(() => {
     if (theme === undefined) return [null, null]
@@ -159,12 +162,20 @@ export default function HeaderSection({
                   }
                 </CollapsibleContent>
               </Collapsible>
+              <Separator className="my-4" />
+              <SheetFooter>
+                <SheetClose
+                  className="hover:bg-secondary/50 rounded-md py-2 px-4"
+                >
+                  {close}
+                </SheetClose>
+              </SheetFooter>
             </SheetContent>
           </Sheet>
         </div>
         {/* MENU PARA MOBILE ------------------------------------- */}
         <div className="block lg:hidden">
-          {/* <Drawer>
+          <Drawer>
             <DrawerTrigger asChild>
               <Button variant="secondary" size="icon">
                 <Menu />
@@ -172,47 +183,94 @@ export default function HeaderSection({
             </DrawerTrigger>
             <DrawerContent>
               <DrawerHeader>
-                <h3 className="uppercase text-md font-bold text-primary">{brand}</h3>
+                <DrawerTitle>{brand}</DrawerTitle>
+                <DrawerDescription>{description}</DrawerDescription>
               </DrawerHeader>
+              <Separator className="my-1 mx-2" />
+              {/* SELECCION DE COLOR ---------------------------------------- */}
+              <div className="p-2 gap-y-4 flex flex-col">
+                <div className="px-2 flex items-center justify-between">
+                  <h4 className="text-sm font-semibold">
+                    {colors}
+                  </h4>
+                  <ColorIndicator active variant={selectedVariant?.variant} size="sm" />
+                </div>
+                <Select
+                  value={selectedVariant?.variant ?? ''}
+                  onValueChange={value => setTheme(value)}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a color" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>{colors}</SelectLabel>
+                      {
+                        THEMES.map((v)  => (
+                          <SelectItem
+                            key={v.variant ?? ''}
+                            value={v.variant ?? ''}
+                          >
+                            {v.label}
+                          </SelectItem>
+                        ))
+                      }
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+              <Separator className="my-1 mx-2" />
+              <div className="p-2 gap-y-4 flex flex-col">
+                <div className="px-2">
+                  <h4 className="text-sm font-semibold">
+                    {langs}
+                  </h4>
+                </div>
+                {
+                  LANGS.map((l)  => (
+                    <Link
+                      id={`${langBaseId}-${l.lang}`}
+                      href={`/${l.lang}`}
+                      key={l.lang}
+                      className="hidden"
+                    >
+                      {l.label} {`${langBaseId}-${l.lang}`}
+                    </Link>
+                  ))
+                }
+                <Select
+                  value={selectedLang?.lang ?? ''}
+                  onValueChange={value => document.getElementById(`${langBaseId}-${value}`)?.click()}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a language" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>{langs}</SelectLabel>
+                      {
+                        LANGS.map((l)  => (
+                          <SelectItem
+                            key={l.lang}
+                            value={l.lang ?? ''}
+                          >
+                            {l.label}
+                          </SelectItem>
+                        ))
+                      }
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+              <DrawerFooter>
+                <DrawerClose 
+                  className="hover:bg-secondary/50 rounded-md py-2"
+                >
+                  {close}
+                </DrawerClose>
+              </DrawerFooter>
             </DrawerContent>
-          </Drawer> */}
-          {/* <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="gap-2">
-                <FlagIcon />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="gap-y-4 w-10">
-              {
-                langs.map(l => (
-                  <Link href={`/${l.lang}`} key={l.lang}>
-                    <DropdownMenuItem key={l.lang} className="gap-4 cursor-pointer">
-                      <div className="w-6 h-6 flex items-center">
-                        <Flag code={flags[l.lang]} height="16px" />
-                      </div>
-                      {l.label}
-                    </DropdownMenuItem>
-                  </Link>
-                ))
-              }
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="gap-2">
-                <Paintbrush /> {customize}
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="gap-y-4">
-              {
-                themes.map((t) => (
-                  <DropdownMenuItem key={t.label} onClick={() => setTheme(t.variant ?? '')} className="gap-4 cursor-pointer">
-                    <ColorIndicator variant={t.variant} active={theme === t.variant} /> {t.label}
-                  </DropdownMenuItem>
-                ))
-              }
-            </DropdownMenuContent>
-          </DropdownMenu> */}
+          </Drawer>
         </div>
       </div>
     </header>

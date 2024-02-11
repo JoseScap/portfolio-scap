@@ -8,7 +8,8 @@ const englishDictionary: Dictionary = {
     customize: 'Customize',
     description: 'Here you will find all the site settings, so you can tailor them to your preferences or have fun experimenting with them!',
     colors: 'Colors',
-    langs: 'Languages'
+    langs: 'Languages',
+    close: 'Close'
   },
   about: {
     lang: 'en',
