@@ -71,7 +71,7 @@ export default function HeaderSection({
         <div className="hidden lg:block">
           <Sheet open={sheet} onOpenChange={setSheet}>
             <SheetTrigger asChild>
-              <Button variant="secondary" size="icon">
+              <Button variant="secondary" size="icon" aria-label="Menu Button">
                 <Menu />
               </Button>
             </SheetTrigger>

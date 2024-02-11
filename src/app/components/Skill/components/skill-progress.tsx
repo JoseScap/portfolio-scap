@@ -18,7 +18,7 @@ export default function SkillProgress({ title, years, yearLabel, yearsLabel, max
         <p>{years} {years > 1 ? yearsLabel : yearLabel}</p>
       </div>
       <div>
-        <Progress value={years * 100 / max} />
+        <Progress value={years * 100 / max} aria-label={`${title} Bar Progress`} />
       </div>
     </div>
   )
