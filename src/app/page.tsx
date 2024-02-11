@@ -1,4 +1,3 @@
-import { dummySleep } from "@/lib/utils";
 import { getDictionary } from "./[lang]/dictionaries";
 import AboutSection from "./components/About/about-section";
 import HeaderSection from "./components/Header/header-section";
@@ -7,7 +6,6 @@ import SkillSection from "./components/Skill/skill-section";
 
 export default async function Home() {
   const { header, about, journey, skills } = await getDictionary()
-  await dummySleep(2000)
 
   return (
     <>
