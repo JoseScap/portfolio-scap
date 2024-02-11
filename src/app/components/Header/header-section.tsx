@@ -262,6 +262,7 @@ export default function HeaderSection({
                   </SelectContent>
                 </Select>
               </div>
+              <Separator className="my-1 mx-2" />
               <DrawerFooter>
                 <DrawerClose 
                   className="hover:bg-secondary/50 rounded-md py-2"
