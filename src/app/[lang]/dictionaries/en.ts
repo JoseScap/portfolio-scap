@@ -88,6 +88,11 @@ const englishDictionary: Dictionary = {
     maxYear: maxYear,
     moreSkills: 'See all',
     lessSkills: 'See just favourites'
+  },
+  footer: {
+    lang: 'en',
+    madeWith: 'Made with',
+    byJosescap: 'by Josescap'
   }
 }
 

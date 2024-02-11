@@ -5,6 +5,7 @@ export type Dictionary = {
     about: AboutDictionary
     journey: JourneyDictionary
     skills: SkillDictionary
+    footer: FooterDictionary
 }
 
 export type Lang = {
@@ -51,6 +52,11 @@ export type JourneyDictionary = Lang & {
     title: string
     journey: Journey[]
     current: string
+}
+
+export type FooterDictionary = Lang & {
+    madeWith: string
+    byJosescap: string
 }
 
 export type Skill = {

@@ -88,6 +88,11 @@ const spanishDictionary: Dictionary = {
     maxYear: maxYear,
     moreSkills: 'Ver todas',
     lessSkills: 'Ver solo favoritas'
+  },
+  footer: {
+    lang: 'es',
+    madeWith: 'Hecho con',
+    byJosescap: 'por Josescap'
   }
 }
 
