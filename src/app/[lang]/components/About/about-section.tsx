@@ -1,8 +1,8 @@
+import { buttonVariants } from "@/components/ui/button";
 import { PropsWithTranslations } from "@/interfaces/interfaces";
 import { AboutDictionary } from "@/types/types";
 import { IconArrowUpRight, IconBrandLinkedin } from "@tabler/icons-react";
 import { ChevronDown } from "lucide-react";
-import { buttonVariants } from "../../../components/ui/button";
 
 export default async function AboutSection({
   translations

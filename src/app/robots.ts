@@ -5,10 +5,10 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: 'Googlebot',
-        allow: ['/'],
+        allow: ['/', '/es', '/en'],
         disallow: '/private/',
       },
     ],
-    sitemap: 'https://acme.com/sitemap.xml',
+    sitemap: 'https://josescap.tech/sitemap.xml',
   }
 }

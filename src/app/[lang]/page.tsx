@@ -1,8 +1,8 @@
-import AboutSection from "../components/About/about-section"
-import FooterSection from "../components/Footer/footer-section"
-import HeaderSection from "../components/Header/header-section"
-import ResumeSection from "../components/Resume/resume-section"
-import SkillSection from "../components/Skill/skill-section"
+import AboutSection from "@/app/[lang]/components/About/about-section"
+import FooterSection from "@/app/[lang]/components/Footer/footer-section"
+import HeaderSection from "@/app/[lang]/components/Header/header-section"
+import ResumeSection from "@/app/[lang]/components/Resume/resume-section"
+import SkillSection from "@/app/[lang]/components/Skill/skill-section"
 import { DictionaryKind, getDictionary, verifyLang } from "./dictionaries"
 
 export const revalidate = 600
