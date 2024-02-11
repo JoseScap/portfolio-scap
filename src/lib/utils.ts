@@ -26,3 +26,10 @@ export function formatJourneyDate(value: string, lang: string = 'es') {
   return `${year} ${month}`;
 }
 
+export const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export const dummySleep = async (number: number): Promise<number> => {
+  await sleep(number);
+
+  return number;
+}
